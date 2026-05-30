@@ -1,0 +1,15 @@
+name = "dz-wilaya-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Optional KV namespace. The Worker reads from KV first and falls back to the
+# data bundled into the build, so the API works with or without KV configured.
+# Create the namespace and paste its id here to enable KV:
+#   wrangler kv namespace create WILAYA_KV
+# [[kv_namespaces]]
+# binding = "WILAYA_KV"
+# id = "<your-kv-namespace-id>"
+
+[observability]
+enabled = true
