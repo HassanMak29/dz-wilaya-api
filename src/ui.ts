@@ -14,6 +14,7 @@ export function buildUI(): string {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='40' height='80' fill='%23006633'/%3E%3Crect x='40' width='40' height='80' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' fill='%23D21034' d='M51 40A14 14 0 1 0 23 40A14 14 0 1 0 51 40ZM52 40A11 11 0 1 0 30 40A11 11 0 1 0 52 40Z'/%3E%3Cpolygon fill='%23D21034' points='52,34 53.5,38 57.7,38.2 54.4,40.8 55.5,44.9 52,42.5 48.5,44.9 49.6,40.8 46.3,38.2 50.5,38'/%3E%3C/svg%3E" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -58,27 +59,13 @@ export function buildUI(): string {
     }
 
     .flag-logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       width: 80px;
       height: 80px;
       border-radius: 22px;
-      background: linear-gradient(135deg, var(--green) 50%, white 50%);
       box-shadow: var(--shadow-lg);
       margin: 0 auto 20px;
-      position: relative;
       overflow: hidden;
-    }
-    .flag-logo::after {
-      content: '🌙⭐';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-28%, -50%);
-      font-size: 18px;
-      line-height: 1;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
     }
 
     header h1 {
@@ -601,7 +588,15 @@ export function buildUI(): string {
 <div class="page">
   <div class="container">
     <header>
-      <div class="flag-logo"></div>
+      <svg class="flag-logo" width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Algerian flag">
+        <defs><clipPath id="rl"><rect width="80" height="80" rx="18" ry="18"/></clipPath></defs>
+        <g clip-path="url(#rl)">
+          <rect width="40" height="80" fill="#006633"/>
+          <rect x="40" width="40" height="80" fill="#ffffff"/>
+          <path fill-rule="evenodd" fill="#D21034" d="M51 40A14 14 0 1 0 23 40A14 14 0 1 0 51 40ZM52 40A11 11 0 1 0 30 40A11 11 0 1 0 52 40Z"/>
+          <polygon fill="#D21034" points="52,34 53.5,38 57.7,38.2 54.4,40.8 55.5,44.9 52,42.5 48.5,44.9 49.6,40.8 46.3,38.2 50.5,38"/>
+        </g>
+      </svg>
       <h1>Algeria Wilaya API</h1>
       <p class="subtitle">
         Free REST API · 58 wilayas · 1541 communes · AR/FR/EN · GPS · Postal codes
@@ -614,7 +609,7 @@ export function buildUI(): string {
         <span class="pill">📮 Postal Codes</span>
         <span class="pill">⚡ Free Forever</span>
       </div>
-      <a class="rapidapi-link" href="https://rapidapi.com/HassanMak29/api/algeria-wilaya-api" target="_blank" rel="noopener">
+      <a class="rapidapi-link" href="https://rapidapi.com/HassanMak29/api/algeria-wilaya" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         Available on RapidAPI
       </a>
@@ -751,7 +746,7 @@ export function buildUI(): string {
       <span class="dot">•</span>
       <a href="https://github.com/HassanMak29/dz-wilaya-api" target="_blank" rel="noopener">GitHub</a>
       <span class="dot">•</span>
-      <a href="https://rapidapi.com/HassanMak29/api/algeria-wilaya-api" target="_blank" rel="noopener">RapidAPI</a>
+      <a href="https://rapidapi.com/HassanMak29/api/algeria-wilaya" target="_blank" rel="noopener">RapidAPI</a>
       <span class="dot">•</span>
       <span>MIT License · Free forever</span>
     </div>
