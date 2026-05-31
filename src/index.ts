@@ -8,6 +8,7 @@ import {
   search,
   toSummary,
 } from "./data";
+import { buildUI } from "./ui";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -19,28 +20,8 @@ const ok = <T>(data: T, extra: Record<string, unknown> = {}) => ({
   data,
 });
 
-// API index ----------------------------------------------------------------
-app.get("/", (c) =>
-  c.json({
-    name: "dz-wilaya-api",
-    description:
-      "Free REST API for Algeria's 58 wilayas and 1541 communes (AR/FR/EN, postal codes, GPS).",
-    version: "1.0.0",
-    endpoints: {
-      "GET /api/wilayas": "List all 58 wilayas (summaries).",
-      "GET /api/wilayas/:code": "Get one wilaya with all its communes.",
-      "GET /api/wilayas/:code/communes": "List communes of a wilaya.",
-      "GET /api/communes": "List every commune (flat).",
-      "GET /api/communes/:postCode": "Find communes by postal code.",
-      "GET /api/regions": "List wilayas grouped by region.",
-      "GET /api/search?q=":
-        "Search wilayas and communes (AR/FR/EN, postal code).",
-      "GET /health": "Health check.",
-    },
-    repository: "https://github.com/HassanMak29/dz-wilaya-api",
-    license: "MIT",
-  }),
-);
+// Interactive testing UI — served before any auth middleware
+app.get("/", (c) => c.html(buildUI()));
 
 app.get("/health", (c) => c.json({ success: true, status: "ok" }));
 
