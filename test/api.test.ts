@@ -10,11 +10,12 @@ async function get(path: string) {
 }
 
 describe("dz-wilaya-api", () => {
-  it("serves the API index", async () => {
-    const { res, body } = await get("/");
+  it("serves the interactive UI at root", async () => {
+    const res = await app.request("/", {}, env);
     expect(res.status).toBe(200);
-    expect(body.name).toBe("dz-wilaya-api");
-    expect(body.endpoints).toBeDefined();
+    expect(res.headers.get("content-type")).toMatch(/text\/html/);
+    const html = await res.text();
+    expect(html).toContain("Algeria Wilaya API");
   });
 
   it("health check", async () => {
