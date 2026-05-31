@@ -906,7 +906,7 @@ export function buildUI(): string {
       if (wilayas.length > 0) {
         html += '<div class="search-section-label">Wilayas (' + wilayas.length + ')</div>';
         wilayas.forEach(function (w) {
-          html += '<div class="search-wilaya-item" onclick="tryCodeFromSearch(\'' + esc(w.code) + '\')">'
+          html += '<div class="search-wilaya-item" onclick="tryCodeFromSearch(\\'' + esc(w.code) + '\\')">'
             + '<div class="sw-code">' + esc(w.code) + '</div>'
             + '<div class="sw-names">'
             +   '<div class="sw-fr">' + esc(w.name.fr) + ' <span style="color:var(--text-sec);font-weight:400">/ ' + esc(w.name.en) + '</span></div>'
@@ -979,7 +979,7 @@ export function buildUI(): string {
     var html = '<div style="margin-bottom:14px;font-size:14px;color:var(--text-sec)">Click any wilaya to view full details and communes.</div>';
     html += '<div class="wilaya-list-grid">';
     wilayas.forEach(function (w) {
-      html += '<div class="wl-item" onclick="openWilaya(\'' + esc(w.code) + '\')">'
+      html += '<div class="wl-item" onclick="openWilaya(\\'' + esc(w.code) + '\\')">'
         + '<div class="wl-num">' + esc(w.code) + '</div>'
         + '<div class="wl-text">'
         +   '<div class="wl-fr">' + esc(w.name.fr) + '</div>'
